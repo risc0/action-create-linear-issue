@@ -14,7 +14,9 @@ const createAttachment = async (
     url: string;
   }
 ): Promise<Attachment | null> => {
-  const attachmentPayload = await linearClient.attachmentCreate(input);
+  const attachmentPayload = await linearClient.attachmentLinkGitHubPR(input.issueId, input.url, {
+    title: input.title,
+  });
   if (!attachmentPayload.success) {
     return null;
   }

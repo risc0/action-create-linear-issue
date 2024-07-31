@@ -16,7 +16,7 @@ const createIssue = async (
     labelIds?: string[];
   }
 ): Promise<Issue | null> => {
-  const issuePayload = await linearClient.issueCreate(input);
+  const issuePayload = await linearClient.createIssue(input);
 
   if (!issuePayload.success) {
     return null;
